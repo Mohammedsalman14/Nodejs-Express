@@ -1,10 +1,7 @@
-// Modules
-const names=require("./4-names");
-const sayHi=require("./5-utils");
-console.log(names);
+const _=require('lodash');
 
+const items=[1,[2,[3,[4,[5]]]]]
 
-sayHi(names.john);
-sayHi(names.peter);
+const newitems=_.flattenDeep(items);
 
-
+console.log(newitems);
