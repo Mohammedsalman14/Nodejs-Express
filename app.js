@@ -1,7 +1,18 @@
-const _=require('lodash');
+const http=require('http');
 
-const items=[1,[2,[3,[4,[5]]]]]
+const server=http.createServer((req,res)=>{
+    if(req.url==='/'){
+        return res.end("Home Page");
+    }if(req.url==='/about'){
+        for(let i=0;i<100;i++){
+            for(let j=0;j<100;j++){
+                console.log(`${i} ${j}`);
+            }
+        }
+        return res.end("About page");
+    }
+})
 
-const newitems=_.flattenDeep(items);
-
-console.log(newitems);
+server.listen(5000,()=>{
+    console.log("Server is running...");
+})
