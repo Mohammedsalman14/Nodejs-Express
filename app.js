@@ -1,18 +1,37 @@
-const http=require('http');
+const{readFile,writeFile} =require('fs').promises;
 
-const server=http.createServer((req,res)=>{
-    if(req.url==='/'){
-        return res.end("Home Page");
-    }if(req.url==='/about'){
-        for(let i=0;i<100;i++){
-            for(let j=0;j<100;j++){
-                console.log(`${i} ${j}`);
-            }
-        }
-        return res.end("About page");
+
+// const util=require('util');
+// const readFilepromise=util.promisify(readFile);
+// const writeFilepromise=util.promisify(writeFile);
+
+
+const start=async()=>{
+    try{
+        const first=await readFile('./content/myfile.txt','utf-8');
+        const second=await readFile('./content/second.txt','utf-8');
+        await writeFile('./content/result-mind-grenade.txt',`THIS IS AWESOME: ${first} ${second}`,{flag:'a'});
+        console.log(first," ",second);
     }
-})
+    catch(err){
+        console.log(err);
+    }
+}
+start();
 
-server.listen(5000,()=>{
-    console.log("Server is running...");
-})
+
+
+
+// const gettext=(path)=>{
+//     return new Promise((resolve,reject)=>{
+//         readFile(path,'utf-8',(err,data)=>{
+//             if(err){
+//                 reject(err);
+//             }else{
+//                 resolve(data);
+//             }
+//         })
+//     })
+// }
+
+// gettext('./content/myfile.txt').then(result=>console.log(result)).catch(error=>console.log(error))
