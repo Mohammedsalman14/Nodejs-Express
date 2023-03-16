@@ -1,9 +1,17 @@
-function username(callback){
-    let name="mohammed salman";
-    // calling the function... back
-    callback(name);
-}
-function display(data){
-    console.log(data);
-}
-username(display)
+const promise=new Promise((resolve,reject)=>{
+    setTimeout(() => {
+        console.log("got the user");
+        if(false){
+        resolve({user:'ed'});
+        }else{
+
+        
+        reject(new Error('User not logged in'));
+        }
+    }, 3000);
+})
+
+promise.then(result=>{
+    console.log(result);
+})
+.catch(err=>{console.log(err.message);})
