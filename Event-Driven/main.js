@@ -1,25 +1,27 @@
-const eventEmiter=require('events');
-const customEmiter=new eventEmiter();
-customEmiter.on('testing',test)
-
-customEmiter.emit('testing',"Salman",14);
-
-function test(name,id){
-    console.log(`hello world ${name} ${id}`);
-}
 
 
+const Evenemitter=require('events');
+
+const emitter=new Evenemitter();
 
 
-
-const http=require('http');
-
-const server=http.createServer();
-
-server.on('request',(req,res)=>{
-
-   res.end("hello world");
+    emitter.on('response',()=>{
+        console.log("Event Ocurred");
+    });
+    emitter.on('response',()=>{
+        console.log("Event Ocurred");
+    });
+    emitter.on('response',(x)=>{
+        console.log(`Event Ocurred with paramater ${x}`);
+    });
+    emitter.on('bar',()=>{
+        console.log("The Bar.");
+    })
+  
     
-}).listen(8060);
-
+    
+    
+    emitter.emit('response',123);
+    emitter.emit('bar');
+    
 
