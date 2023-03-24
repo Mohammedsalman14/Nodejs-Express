@@ -1,0 +1,13 @@
+Api vs Ssr
+
+Api:
+
+Api - Json
+Send - data
+Res.Json()
+
+Ssr:
+
+Ssr - Template
+Send Template
+Res.Render()
