@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="email">
+    <input type="text" placeholder="password">
+    <button>submit</button>
+    <div id="problem-element" style="width: 70vw;">
+    </div>
+
+    <button onclick="renderproblems1()">1</button>
+    <button onclick="renderproblems2()">2</button>
+    <script>
+        const problems = [{
+            title: '201 Bitwise and of number range',
+            difficulty: 'Medium',
+            acceptance: '42%'
+        }, {
+            title: ' 202 Factorial',
+            difficulty: 'Hard',
+            acceptance: '60%'
+        }, {
+            title: '203 Prime',
+            difficulty: 'Easy',
+            acceptance: '40%'
+        }
+            , {
+            title: '203 Prime',
+            difficulty: 'Easy',
+            acceptance: '40%'
+        }]
+        const problems2 = [{
+            title: '204 Bitwise and of number range',
+            difficulty: 'Medium',
+            acceptance: '42%'
+        }, {
+            title: ' 205 Factorial',
+            difficulty: 'Hard',
+            acceptance: '60%'
+        }, {
+            title: '263 Prime',
+            difficulty: 'Easy',
+            acceptance: '40%'
+        }
+            , {
+            title: '207 Prime',
+            difficulty: 'Easy',
+            acceptance: '40%'
+        }]
+
+        function addproblems(problemsProvided) {
+            const parentEl = document.getElementById('problem-element')
+            const tableTag = document.createElement("table");
+            for (let i = 0; i < problemsProvided.length; i++) {
+                const trTag = document.createElement("tr");
+                const tdTage1 = document.createElement("td");
+                tdTage1.innerHTML = problemsProvided[i].title;
+                const tdTage2 = document.createElement("td");
+                tdTage2.innerHTML = problemsProvided[i].difficulty;
+                const tdTage3 = document.createElement("td");
+                tdTage3.innerHTML = problemsProvided[i].acceptance;
+
+                trTag.append(tdTage1);
+                trTag.append(tdTage2);
+                trTag.append(tdTage3);
+                tableTag.append(trTag);
+
+            }
+            parentEl.append(tableTag);
+        }
+        function renderproblems1() {
+            const parentEl = document.getElementById('problem-element')
+            parentEl.innerHTML = "";
+            addproblems(problems)
+        }
+        function renderproblems2() {
+            const parentEl = document.getElementById('problem-element')
+            parentEl.innerHTML = "";
+            addproblems(problems2);
+        }
+
+
+    </script>
+</body>
+
+</html>

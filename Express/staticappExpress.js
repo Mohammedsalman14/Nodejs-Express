@@ -8,6 +8,8 @@ app.use(express.static('./public'));
 
 app.listen(5000);
 
-app.get('/', (req, res) => {
-   res.status(200).sendFile(path.join(__dirname,'./index.html'));
-})
+// app.get('/', (req, res) => {
+//    res.status(200).sendFile(path.join(__dirname,'./index.html'));
+//    const pathing=path.resolve(__dirname,'./index.html');
+//    console.log(pathing);
+// })
